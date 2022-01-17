@@ -94,12 +94,18 @@ class Calendar:
             Age = today.year - int(BirthYear)
         else:
             Age = None
-        BirthNow = date(today.year, int(BirthMonth), int(BirthDay))  # 今年的生日日期
-        if BirthNow < today:
-            BirthNow = date(today.year + 1, int(BirthMonth), int(BirthDay))  # 明年的生日日期
+        try:
+            BirthNow = date(today.year, int(BirthMonth), int(BirthDay))  # 今年的生日日期
+            if BirthNow < today:
+                BirthNow = date(today.year + 1, int(BirthMonth), int(BirthDay))  # 明年的生日日期
+        except:
+            print("Day error,  Maybe not this day!")
+            return
         Distance = BirthNow - today
         Distance = Distance.days
-        self.message = getMessage(Distance, friend["DistanceConfig"], friend["Name"], Age, friend["Calendar"], BirthDay, BirthMonth,
+        self.message = getMessage(Distance, friend["DistanceConfig"], friend["Name"], Age, friend["Calendar"],
+                                  BirthDay,
+                                  BirthMonth,
                                   BirthYear)
 
     def LunarCalendar(self, friend):
@@ -113,12 +119,18 @@ class Calendar:
             Age = today.year - int(BirthYear)
         else:
             Age = None
-        BirthNow = LunarDate(today.year, int(BirthMonth), int(BirthDay))  # 今年的生日日期
-        if BirthNow < today:
-            BirthNow = LunarDate(today.year + 1, int(BirthMonth), int(BirthDay))  # 明年的生日日期
+        try:
+            BirthNow = LunarDate(today.year, int(BirthMonth), int(BirthDay))  # 今年的生日日期
+            if BirthNow < today:
+                BirthNow = LunarDate(today.year + 1, int(BirthMonth), int(BirthDay))  # 明年的生日日期
+        except:
+            print("Day error,  Maybe not this day!")
+            return
         Distance = BirthNow - today
         Distance = Distance.days
-        self.message = getMessage(Distance, friend["DistanceConfig"], friend["Name"], Age, friend["Calendar"], BirthDay, BirthMonth,
+        self.message = getMessage(Distance, friend["DistanceConfig"], friend["Name"], Age, friend["Calendar"],
+                                  BirthDay,
+                                  BirthMonth,
                                   BirthYear)
 
 
