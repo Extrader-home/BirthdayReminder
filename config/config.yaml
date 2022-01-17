@@ -1,0 +1,12 @@
+Receive:
+  Email:
+    - "710712799@qq.com"
+
+Send:
+  - Email : "3153773203@qq.com"
+    SMTPPwd : "yycjqpfwnuzwdfbf"
+    SMTPServer : "smtp.qq.com"
+
+Template:
+  MessageTmp : "是{}的生日，具体日期是{}（{}）"
+  HaveAgeMessageTmp : "是{}的{}岁生日，具体日期是{}（{}）"
