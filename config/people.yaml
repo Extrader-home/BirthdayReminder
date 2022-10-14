@@ -39,3 +39,11 @@ People:
     Day: "0000-05-27"
     Calendar: "lunar"
     DistanceConfig: 1
+  - Name: "王rj"
+    Day: "0000-10-23"
+    Calendar: "lunar"
+    DistanceConfig: 1
+  - Name: "凌k"
+    Day: "0000-11-26"
+    Calendar: "lunar"
+    DistanceConfig: 1
