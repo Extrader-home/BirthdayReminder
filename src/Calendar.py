@@ -9,7 +9,7 @@ from src.SendMail import SendMail
 def getPeople():
     curPath = os.path.dirname(os.path.realpath(__file__))
     peoplePath = os.path.join(curPath, "../config/people.yaml")
-    peopleFile = open(peoplePath, 'r', encoding='utf-8')
+    peopleFile = open(peoplePath, "r", encoding="utf-8")
     peopleDict = yaml.load(peopleFile.read(), Loader=yaml.FullLoader)
     return peopleDict["People"]
 
@@ -17,7 +17,7 @@ def getPeople():
 def getTemplate():
     curPath = os.path.dirname(os.path.realpath(__file__))
     peoplePath = os.path.join(curPath, "../config/config.yaml")
-    peopleFile = open(peoplePath, 'r', encoding='utf-8')
+    peopleFile = open(peoplePath, "r", encoding="utf-8")
     peopleDict = yaml.load(peopleFile.read(), Loader=yaml.FullLoader)
     return peopleDict["Template"]
 
@@ -78,7 +78,7 @@ class Calendar:
                 exit()
             if self.message is not None:
                 print(self.message)
-                self.title = self.message.split('，')[0]
+                self.title = self.message.split("，")[0]
                 SendMail(self.title, self.message)
             else:
                 continue
@@ -86,7 +86,7 @@ class Calendar:
     def SolarCalendar(self, friend):
         today = date.today()
         try:
-            BirthYear, BirthMonth, BirthDay = friend["Day"].split('-')
+            BirthYear, BirthMonth, BirthDay = friend["Day"].split("-")
         except:
             print("Day format error,  Need yyyy-MM-dd!")
             exit()
@@ -111,7 +111,7 @@ class Calendar:
     def LunarCalendar(self, friend):
         today = LunarDate.today()
         try:
-            BirthYear, BirthMonth, BirthDay = friend["Day"].split('-')
+            BirthYear, BirthMonth, BirthDay = friend["Day"].split("-")
         except:
             print("Day format error,  Need yyyy-MM-dd!")
             exit()

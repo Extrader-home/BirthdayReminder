@@ -6,22 +6,34 @@ from email.utils import parseaddr, formataddr
 import smtplib
 
 
+def getEnv(env_name):
+    """Get the value of an environment variable."""
+    try:
+        return os.environ[env_name]
+    except KeyError:
+        raise ValueError(f"Environment variable {env_name} not found")
+
+
 def getConfig():
     curPath = os.path.dirname(os.path.realpath(__file__))
     configPath = os.path.join(curPath, "../config/config.yaml")
-    configFile = open(configPath, 'r', encoding='utf-8')
+    configFile = open(configPath, "r", encoding="utf-8")
     configDict = yaml.load(configFile.read(), Loader=yaml.FullLoader)
     return configDict
 
 
 def getReceiveEmail():
-    config = getConfig()
-    return config["Receive"]["Email"]
+    Receivers = getEnv("RECEIVERS")
+    return Receivers.strip("*;").split(";")
 
 
 def getSendEmail():
-    config = getConfig()
-    return config["Send"]
+    SenderEmail = getEnv("SENDEREMAIL")
+    SenderSmtpPwd = getEnv("SENDERSMTPPWD")
+    SenderSmtpServer = getEnv("SENDERSMTPSERVER").split(":")
+    if len(SenderSmtpServer) == 1:
+        SenderSmtpServer.append("25")
+    return [{"Email": SenderEmail, "SMTPPwd": SenderSmtpPwd, "SMTPServer": SenderSmtpServer}]
 
 
 def formatAddress(s):
@@ -37,7 +49,7 @@ class SendMail:
 
     def sendEmail(self, title, text):
         for sendEmail in getSendEmail():
-            server = smtplib.SMTP(sendEmail["SMTPServer"], 587)  # 25 is default smtp port, check mail setting
+            server = smtplib.SMTP(sendEmail["SMTPServer"][0], int(sendEmail["SMTPServer"][1]))  # 25 is default smtp port, check mail setting
             # server.set_debuglevel(1)
             server.login(sendEmail["Email"], sendEmail["SMTPPwd"])
 
