@@ -11,6 +11,10 @@ People:
     Day: "0000-12-22"
     Calendar: "lunar"
     DistanceConfig : 1
+  - Name: "奶奶"
+    Day: "0000-5-10"
+    Calendar: "lunar"
+    DistanceConfig : 1
   - Name: "MoM"
     Day: "1978-12-3"
     Calendar: "lunar"
