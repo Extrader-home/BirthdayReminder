@@ -15,6 +15,10 @@ People:
     Day: "0000-5-10"
     Calendar: "lunar"
     DistanceConfig : 1
+  - Name: "外公"
+    Day: "0000-4-27"
+    Calendar: "lunar"
+    DistanceConfig : 1
   - Name: "MoM"
     Day: "1978-12-3"
     Calendar: "lunar"
@@ -25,7 +29,7 @@ People:
     DistanceConfig: 1
   - Name: "秦xm"
     Day: "0000-10-12"
-    Calendar: "solar"
+    Calendar: "lunar"
     DistanceConfig: 1
   - Name: "欧阳zt"
     Day: "0000-9-19"
