@@ -1,0 +1,6 @@
+.DS_Store
+.idea
+config/secret.yaml
+config/people.yaml
+__pycache__
+**/__pycache__

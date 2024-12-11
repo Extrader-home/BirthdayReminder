@@ -1,0 +1,5 @@
+People:
+  - Name : "Example"
+    Day : "2024-11-11"  # 日期格式为yyyy-MM-dd，若不知道年份则设置为0000
+    Calendar : "lunar"  # 阴历：lunar 阳历：solar
+    DistanceConfig : 0  # 设置生日提前几天提醒, 最大为3, 0为当天提醒
